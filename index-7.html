@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0714">
+<meta name="description" content="FORMIX — We build digital experiences.">
+<title>FORMIX — Digital Experiences</title>
+<style>
+:root{
+  --bg:#09070f;--bg2:#100b1d;--panel:rgba(255,255,255,.075);--panel2:rgba(255,255,255,.045);
+  --text:#f8f5ff;--muted:#b9afc8;--line:rgba(255,255,255,.13);
+  --a:#a855f7;--b:#ec4899;--c:#22d3ee;--d:#f97316;--e:#facc15;--f:#34d399;
+  --radius:24px;--blur:20px;--space:1;
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:
+radial-gradient(circle at 15% 10%,rgba(168,85,247,.2),transparent 28rem),
+radial-gradient(circle at 85% 25%,rgba(236,72,153,.15),transparent 30rem),
+radial-gradient(circle at 50% 90%,rgba(34,211,238,.1),transparent 28rem),var(--bg);
+color:var(--text);font-family:var(--font);overflow-x:hidden}body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+background:linear-gradient(120deg,rgba(255,255,255,.025),transparent 35%,rgba(255,255,255,.018));}
+button,input,textarea,select{font:inherit}button{cursor:pointer;color:inherit}.container{width:min(1180px,calc(100% - 32px));margin:auto}
+a{color:inherit;text-decoration:none}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--b));box-shadow:0 0 18px var(--b)}
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;width:min(1160px,calc(100% - 22px));display:flex;align-items:center;justify-content:space-between;
+padding:10px 12px 10px 18px;background:rgba(10,7,16,.68);border:1px solid var(--line);backdrop-filter:blur(22px);border-radius:999px;box-shadow:0 20px 60px rgba(0,0,0,.28)}
+.logo{font-weight:950;letter-spacing:-.05em;font-size:1.18rem}.logo span{background:linear-gradient(90deg,var(--c),var(--a),var(--b),var(--d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.navlinks{display:flex;gap:4px}.navlinks a{padding:9px 12px;color:#d7cde3;font-size:.88rem;border-radius:999px}.navlinks a:hover{background:rgba(255,255,255,.08);color:#fff}
+.navactions{display:flex;gap:7px}.iconbtn,.pillbtn{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:999px;padding:10px 13px}.pillbtn.primary{border:0;background:linear-gradient(110deg,var(--a),var(--b),var(--d));box-shadow:0 8px 28px rgba(168,85,247,.25);font-weight:800}
+.menu{display:none}
+.hero{min-height:100svh;display:grid;place-items:center;padding:140px 0 80px;position:relative}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+h1{font-size:clamp(3.7rem,9vw,8.8rem);line-height:.82;letter-spacing:-.075em;margin:18px 0 28px;max-width:900px}
+.gradient{background:linear-gradient(105deg,#fff 4%,#d9c4ff 28%,#f0a9e8 48%,#ffb06e 70%,#7deaff 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);line-height:1.7;color:var(--muted);max-width:650px}
+.prompt{margin-top:28px;padding:9px;background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:22px;display:flex;gap:8px;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+.prompt textarea{resize:none;min-height:62px;flex:1;border:0;outline:0;background:transparent;color:#fff;padding:13px;font-size:1rem}.prompt button{border:0;border-radius:16px;padding:0 20px;background:linear-gradient(135deg,var(--a),var(--b),var(--d));font-weight:900}
+.hero-orb{position:relative;min-height:440px;display:grid;place-items:center}.orb{width:min(390px,75vw);aspect-ratio:1;border-radius:48% 52% 60% 40%;background:
+radial-gradient(circle at 30% 25%,#fff 0 2%,transparent 3%),conic-gradient(from 20deg,var(--c),var(--a),var(--b),var(--d),var(--e),var(--c));
+filter:saturate(1.25);box-shadow:0 0 80px rgba(168,85,247,.35),inset 0 0 80px rgba(255,255,255,.2);animation:float 8s ease-in-out infinite;position:relative}
+.orb:after{content:"";position:absolute;inset:12%;border-radius:inherit;background:rgba(8,5,14,.26);backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,.25)}
+.orbtext{position:absolute;z-index:2;text-align:center;font-weight:900;letter-spacing:-.04em;font-size:1.7rem}.orbtext small{display:block;color:#ddd0e9;font-weight:600;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;margin-top:8px}
+@keyframes float{50%{transform:translateY(-18px) rotate(4deg) scale(1.03)}}
+section{padding:105px 0}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:28px}.sectionhead h2{font-size:clamp(2rem,5vw,4.3rem);line-height:.95;letter-spacing:-.06em;margin:10px 0}.sectionhead p{max-width:480px;color:var(--muted);line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 20px 70px rgba(0,0,0,.2);backdrop-filter:blur(var(--blur));position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:180px;height:180px;right:-80px;top:-80px;background:radial-gradient(circle,rgba(236,72,153,.16),transparent 70%);pointer-events:none}
+.feature{grid-column:span 4;min-height:220px}.feature h3{margin:34px 0 10px;font-size:1.25rem}.feature p{color:var(--muted);line-height:1.6}.feature .num{font-size:.72rem;color:#fff;opacity:.7;letter-spacing:.14em}.wide{grid-column:span 8}.half{grid-column:span 6}.full{grid-column:1/-1}
+.badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);font-size:.75rem;color:#e6dcec}
+.icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(168,85,247,.25),rgba(34,211,238,.12));border:1px solid rgba(255,255,255,.13);font-size:1.2rem}
+.concept{min-height:430px;display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}.concept-input{display:flex;flex-direction:column;gap:12px}.field{background:rgba(0,0,0,.18);border:1px solid var(--line);border-radius:16px;padding:13px;color:#fff;outline:none;width:100%}.field:focus{border-color:var(--c);box-shadow:0 0 0 3px rgba(34,211,238,.08)}textarea.field{min-height:170px;resize:vertical}
+.result{min-height:100%;display:flex;flex-direction:column;gap:12px}.result.empty{align-items:center;justify-content:center;text-align:center;color:var(--muted)}.result h3{font-size:2rem;letter-spacing:-.04em;margin:5px 0}.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);font-size:.78rem}.meter{height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}.meter i{display:block;height:100%;width:72%;background:linear-gradient(90deg,var(--c),var(--a),var(--b),var(--d));border-radius:inherit}
+.portfolio{grid-column:span 4;min-height:280px;transition:.35s;transform-style:preserve-3d}.portfolio:hover{transform:translateY(-7px) rotateX(2deg) rotateY(-2deg)}.visual{height:145px;border-radius:18px;background:linear-gradient(135deg,#24113e,#d946ef 40%,#fb923c 70%,#fde68a);position:relative;overflow:hidden;margin-bottom:18px}.visual:before,.visual:after{content:"";position:absolute;border-radius:50%;filter:blur(4px)}.visual:before{width:180px;height:180px;background:#22d3ee;left:-30px;bottom:-100px}.visual:after{width:160px;height:160px;background:#a855f7;right:-40px;top:-70px}.portfolio:nth-child(2) .visual{background:linear-gradient(135deg,#071f29,#0ea5e9,#34d399,#facc15)}.portfolio:nth-child(3) .visual{background:linear-gradient(135deg,#2a0b19,#ec4899,#f97316,#fde68a)}.portfolio:nth-child(4) .visual{background:linear-gradient(135deg,#16102e,#7c3aed,#22d3ee,#f9a8d4)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:.7rem;padding:5px 8px;border-radius:8px;background:rgba(0,0,0,.25);color:#eee}
+.xray{height:360px;position:relative;overflow:hidden;border-radius:22px;background:linear-gradient(135deg,#161022,#25133e);border:1px solid var(--line)}.xray .finished{position:absolute;inset:0;padding:35px;background:linear-gradient(120deg,#12101a,#6d28d9 45%,#ec4899);display:flex;align-items:center;justify-content:center;text-align:center}.xray .wire{position:absolute;inset:0;padding:25px;background:repeating-linear-gradient(0deg,transparent 0 39px,rgba(34,211,238,.18) 40px 41px),repeating-linear-gradient(90deg,transparent 0 59px,rgba(168,85,247,.18) 60px 61px);opacity:.95}.lens{position:absolute;width:150px;height:150px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 30px rgba(34,211,238,.5),inset 0 0 30px rgba(34,211,238,.2);pointer-events:none;background:rgba(10,8,18,.05);backdrop-filter:invert(.05)}.lensLabel{position:absolute;left:14px;bottom:14px;z-index:3;font-size:.75rem;padding:7px 10px;border-radius:10px;background:rgba(0,0,0,.5);border:1px solid var(--line)}
+.slider{position:relative;height:320px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#1b1225}.slideA,.slideB{position:absolute;inset:0;padding:28px;display:flex;align-items:center;justify-content:center;text-align:center}.slideA{background:linear-gradient(135deg,#21172c,#4c1d95)}.slideB{background:linear-gradient(135deg,#082c38,#22c55e 35%,#f97316 70%,#ec4899);clip-path:inset(0 50% 0 0)}.range{position:absolute;inset:0;width:100%;opacity:0;cursor:ew-resize;z-index:3}.handle{position:absolute;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#111;z-index:4;box-shadow:0 8px 30px #000}.rangeWrap{position:absolute;inset:0;z-index:5;pointer-events:none}.handle{left:50%}
+.customizer{display:grid;grid-template-columns:1fr 1fr;gap:12px}.swatches{display:flex;gap:9px;flex-wrap:wrap}.swatch{width:32px;height:32px;border-radius:50%;border:2px solid transparent}.swatch.active{border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.16)}
+.arch{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:center}.node{padding:18px 10px;text-align:center;border-radius:15px;border:1px solid var(--line);background:rgba(255,255,255,.06);font-size:.78rem}.arrow{text-align:center;color:var(--c)}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.service{padding:22px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.05);min-height:150px;transition:.25s}.service:hover{transform:translateY(-5px);background:rgba(255,255,255,.08)}
+.chat{position:fixed;right:18px;bottom:18px;z-index:60}.chatbtn{width:58px;height:58px;border-radius:20px;border:0;background:linear-gradient(135deg,var(--a),var(--b),var(--d));box-shadow:0 14px 40px rgba(168,85,247,.4);font-size:1.3rem}.chatpanel{position:absolute;right:0;bottom:70px;width:min(390px,calc(100vw - 28px));height:560px;background:rgba(13,9,20,.94);border:1px solid var(--line);backdrop-filter:blur(28px);border-radius:24px;box-shadow:0 30px 100px rgba(0,0,0,.55);display:none;overflow:hidden}.chatpanel.open{display:flex;flex-direction:column}.chathead{padding:16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.chatmsgs{flex:1;overflow:auto;padding:15px;display:flex;flex-direction:column;gap:10px}.msg{max-width:85%;padding:11px 13px;border-radius:16px;line-height:1.5;font-size:.9rem}.msg.ai{align-self:flex-start;background:rgba(255,255,255,.07)}.msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--a),var(--b));}.quick{display:flex;gap:6px;overflow:auto;padding:8px 12px}.quick button{white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.05);padding:7px 9px;border-radius:999px;font-size:.72rem}.chatinput{display:flex;gap:7px;padding:10px;border-top:1px solid var(--line)}.chatinput input{flex:1;min-width:0;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff;border-radius:13px;padding:10px;outline:none}.chatinput button{border:0;border-radius:13px;padding:0 13px;background:linear-gradient(135deg,var(--c),var(--a));font-weight:900}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(12px);z-index:100;display:none;place-items:center;padding:18px}.modal.open{display:grid}.modalbox{width:min(760px,100%);max-height:88vh;overflow:auto;background:#100b18;border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:0 40px 120px #000}.modalhead{display:flex;justify-content:space-between;align-items:center}.close{border:1px solid var(--line);background:rgba(255,255,255,.06);width:38px;height:38px;border-radius:50%}
+.terminal{background:#050607;border:1px solid rgba(52,211,153,.25);border-radius:18px;padding:18px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;min-height:330px;color:#b8ffd9}.terminallog{height:230px;overflow:auto}.terminal input{width:100%;background:transparent;border:0;color:#fff;outline:0;font:inherit;margin-top:10px}
+footer{padding:70px 0 30px;border-top:1px solid var(--line);margin-top:60px}.foot{display:flex;justify-content:space-between;gap:20px;align-items:end}.muted{color:var(--muted)}.reveal{opacity:0;transform:translateY(24px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);background:#fff;color:#111;padding:11px 15px;border-radius:999px;font-size:.85rem;font-weight:800;z-index:120;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.35;animation:drift linear infinite}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-orb{min-height:300px}.feature,.portfolio{grid-column:span 6}.wide,.half{grid-column:1/-1}.services{grid-template-columns:1fr 1fr}.navlinks{display:none}.menu{display:block}.arch{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
+@media(max-width:620px){section{padding:75px 0}.container{width:min(100% - 22px,1180px)}nav{top:8px}.navactions .pillbtn.primary{display:none}.hero{padding-top:125px}h1{font-size:clamp(3.4rem,18vw,5.8rem)}.prompt{flex-direction:column}.prompt button{min-height:52px}.feature,.portfolio{grid-column:1/-1}.services{grid-template-columns:1fr}.concept,.customizer{grid-template-columns:1fr}.sectionhead{display:block}.xray,.slider{height:280px}.foot{display:block}.chatpanel{height:min(560px,72vh)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+
+<nav>
+  <a class="logo" href="#top">FOR<span>MIX</span></a>
+  <div class="navlinks">
+    <a href="#studio">Studio</a><a href="#work">Work</a><a href="#labs">Labs</a><a href="#contact">Contact</a>
+  </div>
+  <div class="navactions">
+    <button class="iconbtn" id="voiceBtn" title="Voice navigation">🎙️</button>
+    <button class="iconbtn" id="terminalBtn" title="Terminal mode">⌘</button>
+    <button class="pillbtn primary" onclick="document.querySelector('#contact').scrollIntoView()">Discuss a Project</button>
+    <button class="iconbtn menu" onclick="toggleMobileNav()">☰</button>
+  </div>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow"><i class="dot"></i> Digital studio · AI · Experience</div>
+      <h1>We build <span class="gradient">digital experiences.</span></h1>
+      <p>FORMIX turns ambitious ideas into bold websites, intelligent interfaces, brands and digital products — designed to be explored, remembered and used.</p>
+      <div class="prompt">
+        <textarea id="heroIdea" placeholder="What are you imagining? e.g. A modern car marketplace..."></textarea>
+        <button onclick="generateConcept('heroIdea')">EXPLORE IDEA ↗</button>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+        <span class="badge">No pricing</span><span class="badge">No fake claims</span><span class="badge">Built for curiosity</span>
+      </div>
+    </div>
+    <div class="hero-orb reveal">
+      <div class="orb"></div>
+      <div class="orbtext">FORMIX<small>make the ordinary disappear</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="studio">
+<div class="container">
+  <div class="sectionhead reveal">
+    <div><div class="eyebrow"><i class="dot"></i> The FORMIX Studio</div><h2>Not a brochure.<br><span class="gradient">An experience.</span></h2></div>
+    <p>Explore the tools below. They are designed to demonstrate how FORMIX thinks: visual, structured, curious and relentlessly focused on the experience.</p>
+  </div>
+  <div class="grid">
+    <div class="card feature reveal"><div class="num">01 / X-RAY</div><div class="icon">◉</div><h3>X-Ray Lens</h3><p>Move your pointer across the visual and reveal the hidden wireframe layer beneath it.</p></div>
+    <div class="card feature reveal"><div class="num">02 / REALITY</div><div class="icon">↔</div><h3>Before → After</h3><p>Drag the slider to compare a rough concept with a more expressive FORMIX direction.</p></div>
+    <div class="card feature reveal"><div class="num">03 / ARCHITECT</div><div class="icon">⌬</div><h3>AI Architect</h3><p>Turn a plain-language idea into a clear product architecture and technology direction.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="concepts">
+<div class="container">
+  <div class="sectionhead reveal">
+    <div><div class="eyebrow"><i class="dot"></i> Idea engine</div><h2>Give it an idea.<br><span class="gradient">Watch it take shape.</span></h2></div>
+    <p>This local concept engine is an interactive demonstration. Connect a real AI provider later for deeper generation.</p>
+  </div>
+  <div class="card concept reveal">
+    <div class="concept-input">
+      <textarea id="ideaInput" class="field" placeholder="Describe a business, website or product..."></textarea>
+      <select id="industry" class="field"><option>Let FORMIX decide</option><option>E-commerce</option><option>Automotive</option><option>SaaS</option><option>Creative studio</option><option>Restaurant</option><option>Education</option><option>AI product</option></select>
+      <button class="pillbtn primary" style="min-height:50px" onclick="generateConcept('ideaInput')">BUILD CONCEPT ✦</button>
+      <button class="pillbtn" onclick="openModal('brandModal')">Create a Brand Direction</button>
+    </div>
+    <div id="conceptResult" class="result empty">
+      <div style="font-size:3rem">✦</div><h3>Your concept lives here.</h3><p>Describe an idea and FORMIX will create a structured direction.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="work">
+<div class="container">
+  <div class="sectionhead reveal"><div><div class="eyebrow"><i class="dot"></i> Selected directions</div><h2>Work that wants<br><span class="gradient">to be touched.</span></h2></div><p>These are concept showcases inside this single-file experience. Replace them with real project data as your portfolio grows.</p></div>
+  <div class="chips" style="margin-bottom:18px">
+    <button class="chip filter active" data-filter="all">All</button><button class="chip filter" data-filter="web">Web</button><button class="chip filter" data-filter="ai">AI</button><button class="chip filter" data-filter="brand">Brand</button><button class="chip filter" data-filter="commerce">Commerce</button>
+  </div>
+  <div class="grid" id="portfolio">
+    <article class="card portfolio reveal" data-type="web"><div class="visual"></div><h3>Nova Commerce</h3><p class="muted">A colorful storefront direction built around product discovery.</p><div class="tags"><span class="tag">Web</span><span class="tag">UX</span><span class="tag">Motion</span></div></article>
+    <article class="card portfolio reveal" data-type="ai"><div class="visual"></div><h3>Orbit AI</h3><p class="muted">An intelligent workspace concept where complex tools feel simple.</p><div class="tags"><span class="tag">AI</span><span class="tag">Product</span><span class="tag">UX</span></div></article>
+    <article class="card portfolio reveal" data-type="brand"><div class="visual"></div><h3>Prism Studio</h3><p class="muted">A visual identity system designed to move, glow and adapt.</p><div class="tags"><span class="tag">Brand</span><span class="tag">Identity</span><span class="tag">3D</span></div></article>
+    <article class="card portfolio reveal" data-type="commerce"><div class="visual"></div><h3>Velocity</h3><p class="muted">An automotive experience with a fast, tactile interface.</p><div class="tags"><span class="tag">Commerce</span><span class="tag">Web</span><span class="tag">Mobile</span></div></article>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="sectionhead reveal"><div><div class="eyebrow"><i class="dot"></i> See beneath the surface</div><h2>Every experience<br>has a <span class="gradient">skeleton.</span></h2></div></div>
+  <div class="card reveal">
+    <div class="xray" id="xray">
+      <div class="finished"><div><div class="eyebrow">FINISHED EXPERIENCE</div><h2 style="font-size:clamp(2rem,6vw,5rem);letter-spacing:-.06em;margin:12px 0">Beautiful on purpose.</h2><p style="color:#f3eaff">Move your pointer to inspect the hidden structure.</p></div></div>
+      <div class="wire"></div><div class="lens" id="lens"></div><div class="lensLabel">X-RAY LENS · MOVE</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="sectionhead reveal"><div><div class="eyebrow"><i class="dot"></i> Reality check</div><h2>From ordinary<br><span class="gradient">to unforgettable.</span></h2></div></div>
+  <div class="card reveal">
+    <div class="slider" id="slider">
+      <div class="slideA"><div><div class="eyebrow">BEFORE</div><h2 style="font-size:clamp(2rem,6vw,5rem);margin:12px 0">Functional.</h2><p class="muted">A basic digital presence.</p></div></div>
+      <div class="slideB" id="slideB"><div><div class="eyebrow">FORMIX DIRECTION</div><h2 style="font-size:clamp(2rem,6vw,5rem);margin:12px 0">Unforgettable.</h2><p>Interaction becomes part of the story.</p></div></div>
+      <input class="range" id="range" type="range" min="0" max="100" value="50">
+      <div class="rangeWrap"><div class="handle" id="handle">↔</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="labs">
+<div class="container">
+  <div class="sectionhead reveal"><div><div class="eyebrow"><i class="dot"></i> FORMIX Labs</div><h2>Where useful meets <span class="gradient">weird.</span></h2></div><p>Experiments belong here. The main experience stays clean; the lab is where FORMIX can show off.</p></div>
+  <div class="grid">
+    <div class="card wide reveal">
+      <h3>AI Architect</h3><p class="muted">A simple architecture visualizer. Generate it from the idea engine or try the example.</p>
+      <div class="arch" id="arch"><div class="node">Frontend</div><div class="arrow">→</div><div class="node">API</div><div class="arrow">→</div><div class="node">Database</div></div>
+      <button class="pillbtn" style="margin-top:15px" onclick="architect()">REBUILD ARCHITECTURE</button>
+    </div>
+    <div class="card half reveal">
+      <h3>Live Customizer</h3><p class="muted">Change the personality of the site. Your choices are saved locally.</p>
+      <div class="swatches">
+        <button class="swatch active" style="background:linear-gradient(135deg,#a855f7,#ec4899)" data-a="#a855f7" data-b="#ec4899"></button>
+        <button class="swatch" style="background:linear-gradient(135deg,#06b6d4,#34d399)" data-a="#06b6d4" data-b="#34d399"></button>
+        <button class="swatch" style="background:linear-gradient(135deg,#f97316,#facc15)" data-a="#f97316" data-b="#facc15"></button>
+        <button class="swatch" style="background:linear-gradient(135deg,#ef4444,#ec4899)" data-a="#ef4444" data-b="#ec4899"></button>
+      </div>
+      <label style="display:block;margin-top:18px;font-size:.8rem">Animation intensity <input id="motionRange" type="range" min="0" max="100" value="70" style="width:100%"></label>
+    </div>
+    <div class="card half reveal">
+      <h3>Terminal Mode</h3><p class="muted">Try a tiny command-line layer. Type <b>help</b>.</p>
+      <button class="pillbtn" onclick="openModal('terminalModal')">OPEN TERMINAL ↗</button>
+    </div>
+    <div class="card full reveal">
+      <h3>Screenshot → Concept</h3><p class="muted">Upload an image. FORMIX can inspect its dimensions and basic visual characteristics locally in your browser. No image is uploaded by this demo.</p>
+      <input id="shot" type="file" accept="image/*" class="field">
+      <div id="shotResult" class="muted" style="margin-top:12px"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="sectionhead reveal"><div><div class="eyebrow"><i class="dot"></i> What we make</div><h2>Services, without<br><span class="gradient">the boring part.</span></h2></div></div>
+  <div class="services">
+    <div class="service reveal"><div class="icon">◈</div><h3>Website Design</h3><p class="muted">Interfaces that feel intentional on every screen.</p></div>
+    <div class="service reveal"><div class="icon">⌘</div><h3>Web Development</h3><p class="muted">Fast, responsive and maintainable digital products.</p></div>
+    <div class="service reveal"><div class="icon">✦</div><h3>AI Experiences</h3><p class="muted">Useful intelligence embedded into real products.</p></div>
+    <div class="service reveal"><div class="icon">◎</div><h3>Brand & UI/UX</h3><p class="muted">Visual systems that make products recognizable.</p></div>
+    <div class="service reveal"><div class="icon">▣</div><h3>E-commerce</h3><p class="muted">Commerce experiences built around discovery and trust.</p></div>
+    <div class="service reveal"><div class="icon">⚙</div><h3>Automation</h3><p class="muted">Turn repetitive digital work into simpler workflows.</p></div>
+    <div class="service reveal"><div class="icon">⌁</div><h3>Custom Products</h3><p class="muted">From first idea to an interface people can actually use.</p></div>
+    <div class="service reveal"><div class="icon">∞</div><h3>Digital Experiments</h3><p class="muted">WebGL, motion and unconventional interfaces when they add value.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+  <div class="sectionhead reveal"><div><div class="eyebrow"><i class="dot"></i> Start a conversation</div><h2>Have an idea?<br><span class="gradient">Let's shape it.</span></h2></div><p>No pricing table. No complicated sales funnel. Just tell FORMIX what you want to make.</p></div>
+  <div class="card reveal">
+    <div id="contactSteps">
+      <div class="chips" style="margin-bottom:18px"><span class="chip" id="step1">01 Idea</span><span class="chip" id="step2">02 Direction</span><span class="chip" id="step3">03 Contact</span></div>
+      <div id="contactForm">
+        <textarea class="field" id="cIdea" placeholder="What are you building?"></textarea>
+        <div class="grid" style="margin-top:12px">
+          <input class="field" id="cName" placeholder="Your name">
+          <input class="field" id="cBusiness" placeholder="Business / brand">
+          <input class="field" id="cContact" placeholder="Email or preferred contact">
+          <select class="field" id="cService"><option>Website Design</option><option>Web Development</option><option>AI Experience</option><option>Brand / UI/UX</option><option>E-commerce</option><option>Custom Digital Product</option></select>
+        </div>
+        <input class="field" id="cWebsite" placeholder="Current website (optional)" style="margin-top:12px">
+        <button class="pillbtn primary" style="margin-top:12px" onclick="submitProject()">SEND PROJECT IDEA ↗</button>
+      </div>
+      <div id="success" style="display:none;text-align:center;padding:45px 10px"><div style="font-size:3rem">✦</div><h2>Idea captured.</h2><p class="muted">This demo stores your project locally in this browser. Connect a form/backend endpoint when you're ready to receive real submissions.</p><button class="pillbtn" onclick="resetContact()">Send another idea</button></div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer><div class="container foot"><div><a class="logo" href="#top">FOR<span>MIX</span></a><p class="muted">We build digital experiences.</p></div><div class="muted">© <span id="year"></span> FORMIX · Built to be explored.</div></div></footer>
+
+<div class="chat">
+  <div class="chatpanel" id="chatPanel">
+    <div class="chathead"><div><b>FORMIX AI</b><div class="muted" style="font-size:.7rem">Local demo assistant</div></div><button class="close" onclick="toggleChat()">×</button></div>
+    <div class="chatmsgs" id="chatMsgs"><div class="msg ai">Hey 👋 I’m the FORMIX assistant. Tell me what you’re trying to build, or choose an action below.</div></div>
+    <div class="quick">
+      <button onclick="quickChat('Build my idea')">Build my idea</button><button onclick="quickChat('Analyze my website')">Analyze website</button><button onclick="quickChat('Create a brand concept')">Brand concept</button><button onclick="quickChat('Show relevant work')">Relevant work</button>
+    </div>
+    <div class="chatinput"><button class="iconbtn" id="chatVoice" title="Voice input">🎙</button><input id="chatInput" placeholder="Ask FORMIX..."><button onclick="sendChat()">↗</button></div>
+  </div>
+  <button class="chatbtn" onclick="toggleChat()" aria-label="Open FORMIX AI">✦</button>
+</div>
+
+<div class="modal" id="brandModal" onclick="if(event.target===this)closeModal('brandModal')">
+ <div class="modalbox"><div class="modalhead"><h2>AI Brand Direction</h2><button class="close" onclick="closeModal('brandModal')">×</button></div>
+ <p class="muted">Describe the brand and FORMIX will create a visual direction locally.</p>
+ <textarea id="brandInput" class="field" placeholder="e.g. premium streetwear for young creators"></textarea>
+ <button class="pillbtn primary" style="margin-top:12px" onclick="brandGenerate()">GENERATE DIRECTION</button>
+ <div id="brandResult" style="margin-top:18px"></div></div>
+</div>
+
+<div class="modal" id="terminalModal" onclick="if(event.target===this)closeModal('terminalModal')">
+ <div class="modalbox"><div class="modalhead"><h2>FORMIX:// TERMINAL</h2><button class="close" onclick="closeModal('terminalModal')">×</button></div>
+ <div class="terminal"><div class="terminallog" id="termLog">FORMIX SYSTEM v1.0<br>Type <b>help</b> to explore.<br><br></div><input id="termInput" autocomplete="off" placeholder="type a command..."></div></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+$('#year').textContent=new Date().getFullYear();
+
+function toast(t){const x=$('#toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),2200)}
+function openModal(id){$('#'+id).classList.add('open');if(id==='terminalModal')setTimeout(()=>$('#termInput').focus(),100)}
+function closeModal(id){$('#'+id).classList.remove('open')}
+function toggleMobileNav(){const n=$('.navlinks');n.style.display=n.style.display==='flex'?'none':'flex';n.style.position='absolute';n.style.top='58px';n.style.right='0';n.style.flexDirection='column';n.style.background='rgba(10,7,16,.95)';n.style.padding='10px';n.style.border='1px solid var(--line)';n.style.borderRadius='18px'}
+function toggleChat(){$('#chatPanel').classList.toggle('open');localStorage.setItem('formixChatOpen',$('#chatPanel').classList.contains('open'))}
+
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.08});
+$$('.reveal').forEach(e=>observer.observe(e));
+
+for(let i=0;i<55;i++){const p=document.createElement('i');p.className='particle';p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.animationDuration=(8+Math.random()*18)+'s';p.style.animationDelay=(-Math.random()*20)+'s';$('#particles').appendChild(p)}
+const style=document.createElement('style');style.textContent='@keyframes drift{to{transform:translate3d('+(Math.random()*100-50)+'px,'+(Math.random()*-120-40)+'px,0);opacity:0}}';document.head.appendChild(style);
+
+function detectTech(text){
+ const t=text.toLowerCase();let frontend='HTML / CSS / JavaScript',backend='Node.js or Python',db='PostgreSQL / SQLite',focus='Responsive web experience';
+ if(/shop|store|ecommerce|product|cart|payment/.test(t)){focus='Commerce experience';backend='Node.js / Python';db='PostgreSQL';}
+ if(/ai|assistant|chatbot|machine|model/.test(t)){focus='AI-powered product';backend='Python + API layer';db='PostgreSQL / vector storage';}
+ if(/mobile|android|ios|app/.test(t)){frontend='Flutter or React Native';backend='Node.js / Python';focus='Cross-platform application';}
+ if(/dashboard|saas|software|platform/.test(t)){frontend='TypeScript + React';backend='Node.js / Python';db='PostgreSQL';focus='Scalable product interface';}
+ return {frontend,backend,db,focus};
+}
+function generateConcept(id){
+ const text=$(id).value.trim();if(!text){toast('Give FORMIX an idea first.');$(id).focus();return}
+ const x=detectTech(text), industry=$('#industry')?.value||'Let FORMIX decide';
+ const keywords=[...new Set((text.toLowerCase().match(/commerce|car|automotive|ai|saas|food|education|fashion|booking|social|marketplace|dashboard/g)||[]))];
+ $('#conceptResult').classList.remove('empty');
+ $('#conceptResult').innerHTML=`<span class="badge">CONCEPT GENERATED · LOCAL DEMO</span><h3>${escapeHtml(text.slice(0,70))}</h3>
+ <p class="muted">${x.focus}. FORMIX would turn the idea into a clear experience, then refine the architecture and implementation.</p>
+ <div class="chips"><span class="chip">Frontend · ${x.frontend}</span><span class="chip">Backend · ${x.backend}</span><span class="chip">Database · ${x.db}</span><span class="chip">Direction · ${industry}</span></div>
+ <div class="card" style="padding:16px;background:rgba(0,0,0,.14)"><b>Core experience</b><p class="muted">Clear navigation · strong first action · responsive layouts · accessible interactions · measurable user flows.</p>
+ <b>Suggested stages</b><p class="muted">Discover → Structure → Design → Build → Test → Refine → Launch.</p></div>
+ <div class="meter"><i></i></div><small class="muted">Concept confidence: directional only — not a professional estimate.</small>
+ <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pillbtn" onclick="architect()">VIEW ARCHITECTURE</button><button class="pillbtn primary" onclick="quickChat('Make this concept better: ${escapeAttr(text.slice(0,80))}')">ASK FORMIX AI</button></div>`;
+ localStorage.setItem('formixLastIdea',text);
+ $('#conceptResult').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function escapeAttr(s){return escapeHtml(s).replace(/`/g,'')}
+function architect(){
+ const text=localStorage.getItem('formixLastIdea')||'digital product';const x=detectTech(text);
+ $('#arch').innerHTML=`<div class="node">${escapeHtml(x.frontend.split(' / ')[0])}</div><div class="arrow">→</div><div class="node">${escapeHtml(x.backend.split(' + ')[0])}</div><div class="arrow">→</div><div class="node">${escapeHtml(x.db.split(' / ')[0])}</div>`;
+ toast('Architecture refreshed.');
+ document.querySelector('#labs').scrollIntoView({behavior:'smooth'});
+}
+function brandGenerate(){
+ const t=$('#brandInput').value.trim()||'modern digital brand';const palettes=[
+ ['Electric Prism','#a855f7 · #ec4899 · #f97316'],['Neon Garden','#34d399 · #22d3ee · #facc15'],['Solar Pulse','#fb7185 · #f97316 · #fde047'],['Deep Candy','#7c3aed · #db2777 · #67e8f9']];
+ const p=palettes[Math.floor(t.length%palettes.length)];
+ $('#brandResult').innerHTML=`<div class="card"><span class="badge">DIRECTION</span><h3>${escapeHtml(t)}</h3><p class="muted">Bold, recognizable and digitally expressive. Use contrast for trust, color for energy, and motion for personality.</p><p><b>Palette:</b> ${p[0]} — ${p[1]}</p><p><b>Typography:</b> geometric display headline + highly readable sans-serif body.</p><p><b>Voice:</b> confident, concise, curious and human.</p><p><b>Interface:</b> layered cards, expressive gradients, tactile controls and generous spacing.</p></div>`;
+}
+$('#range').addEventListener('input',e=>{const v=e.target.value;$('#slideB').style.clipPath=`inset(0 ${100-v}% 0 0)`;$('#handle').style.left=v+'%'});
+const xray=$('#xray'),lens=$('#lens');xray.addEventListener('pointermove',e=>{const r=xray.getBoundingClientRect();lens.style.left=(e.clientX-r.left-75)+'px';lens.style.top=(e.clientY-r.top-75)+'px';});xray.addEventListener('pointerleave',()=>{lens.style.left='calc(50% - 75px)';lens.style.top='calc(50% - 75px)'});
+
+$$('.filter').forEach(b=>b.addEventListener('click',()=>{$$('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;$$('.portfolio').forEach(c=>c.style.display=f==='all'||c.dataset.type===f?'block':'none')}));
+$$('.swatch').forEach(b=>b.addEventListener('click',()=>{document.documentElement.style.setProperty('--a',b.dataset.a);document.documentElement.style.setProperty('--b',b.dataset.b);$$('.swatch').forEach(x=>x.classList.remove('active'));b.classList.add('active');localStorage.setItem('formixAccent',b.dataset.a+'|'+b.dataset.b)}));
+$('#motionRange').addEventListener('input',e=>document.documentElement.style.setProperty('--blur',(8+e.target.value/3)+'px'));
+const saved=localStorage.getItem('formixAccent');if(saved){const [a,b]=saved.split('|');document.documentElement.style.setProperty('--a',a);document.documentElement.style.setProperty('--b',b)}
+
+$('#shot').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const img=new Image();img.onload=()=>{$('#shotResult').innerHTML=`<b>${escapeHtml(f.name)}</b> · ${img.width}×${img.height}px · ${(f.size/1024).toFixed(1)} KB<br><span class="muted">Local analysis: aspect ratio ${(img.width/img.height).toFixed(2)}. FORMIX would inspect layout, spacing, type, color and components with a connected vision model.</span>`;URL.revokeObjectURL(img.src)};img.src=URL.createObjectURL(f)});
+
+function addMsg(text,who='ai'){const d=document.createElement('div');d.className='msg '+who;d.textContent=text;$('#chatMsgs').appendChild(d);$('#chatMsgs').scrollTop=999999}
+function quickChat(t){$('#chatPanel').classList.add('open');$('#chatInput').value=t;sendChat()}
+function botReply(t){
+ const s=t.toLowerCase();
+ if(s.includes('price')||s.includes('cost'))return 'FORMIX does not publish pricing on this experience. The right next step is to understand the project first.';
+ if(s.includes('website')&&s.includes('analy'))return 'For a real website audit, connect a backend or analysis API. This standalone demo can guide the checklist but should not pretend to perform a full remote audit.';
+ if(s.includes('brand'))return 'Open Brand Direction for a visual identity concept, or tell me the audience, mood and business type and I’ll structure a direction.';
+ if(s.includes('work')||s.includes('project'))return 'Explore the Work section and filter by Web, AI, Brand or Commerce. Replace the demo projects with your real work before launch.';
+ if(s.includes('build')||s.includes('idea'))return 'Tell me what you want to build, who it is for, and the most important action users should take. FORMIX can turn that into a concept and architecture.';
+ if(s.includes('service'))return 'FORMIX focuses on websites, web development, AI experiences, UI/UX, branding, e-commerce, automation and custom digital products.';
+ return 'I can help shape an idea, explain FORMIX services, suggest a product direction, or point you to the right interactive tool. What are you building?';
+}
+function sendChat(){const i=$('#chatInput'),t=i.value.trim();if(!t)return;addMsg(t,'user');i.value='';setTimeout(()=>addMsg(botReply(t)),260)}
+$('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat()});
+
+function startVoice(target){
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast('Voice recognition is not supported in this browser.');return}
+ const r=new SR();r.lang='en-US';r.interimResults=false;r.onresult=e=>{const t=e.results[0][0].transcript;if(target)$(target).value=t;else{const l=t.toLowerCase();if(l.includes('project'))location.hash='#work';else if(l.includes('service'))location.hash='#studio';else if(l.includes('lab'))location.hash='#labs';else if(l.includes('contact'))location.hash='#contact';else quickChat(t)}};r.onerror=()=>toast('Voice input could not start.');r.start();toast('Listening…')}
+$('#voiceBtn').onclick=()=>startVoice(null);$('#chatVoice').onclick=()=>startVoice('chatInput');
+
+$('#terminalBtn').onclick=()=>openModal('terminalModal');
+$('#termInput').addEventListener('keydown',e=>{if(e.key!=='Enter')return;const v=e.target.value.trim().toLowerCase();e.target.value='';const log=$('#termLog');const out={help:'commands: help · home · studio · work · labs · contact · clear · whoami',home:'opening home…',studio:'FORMIX Studio — interactive tools and services.',work:'portfolio matrix loaded.',labs:'FORMIX Labs — experiments unlocked.',contact:'contact channel ready.',whoami:'visitor://curious-human'};if(v==='clear'){log.innerHTML='';return}log.innerHTML+=`<br><span style="color:#fff">› ${escapeHtml(v)}</span><br>${escapeHtml(out[v]||'unknown command — try help')}<br>`;log.scrollTop=99999;if(['home','studio','work','labs','contact'].includes(v)){closeModal('terminalModal');location.hash='#'+(v==='home'?'top':v)}});
+function submitProject(){const idea=$('#cIdea').value.trim(),name=$('#cName').value.trim(),contact=$('#cContact').value.trim();if(!idea||!name||!contact){toast('Please add your idea, name and contact.');return}const data={idea,name,business:$('#cBusiness').value,contact,service:$('#cService').value,website:$('#cWebsite').value,date:new Date().toISOString()};localStorage.setItem('formixProjectLead',JSON.stringify(data));$('#contactForm').style.display='none';$('#success').style.display='block'}
+function resetContact(){$('#contactForm').style.display='block';$('#success').style.display='none';$('#cIdea').value='';$('#cName').value='';$('#cBusiness').value='';$('#cContact').value='';$('#cWebsite').value=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){$$('.modal.open').forEach(m=>m.classList.remove('open'));$('#chatPanel').classList.remove('open')}})
+</script>
+</body>
+</html>
